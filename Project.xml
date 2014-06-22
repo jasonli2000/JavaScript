@@ -1,0 +1,1150 @@
+<Project name="Redwood">
+  <SubProject name="catkin">
+  </SubProject>
+  <SubProject name="catkin_simple">
+  </SubProject>
+  <SubProject name="redwood_catkin">
+  </SubProject>
+  <SubProject name="android_dir_chooser">
+  </SubProject>
+  <SubProject name="android_file_explorer">
+  </SubProject>
+  <SubProject name="android_kernel_headers">
+  </SubProject>
+  <SubProject name="android_system_libs">
+  </SubProject>
+  <SubProject name="android_vio_service_clientjar">
+  </SubProject>
+  <SubProject name="android_vins_servicedemo">
+    <Dependency name="android_vio_service_clientjar"/>
+  </SubProject>
+  <SubProject name="blurt">
+  </SubProject>
+  <SubProject name="blurt_monitor">
+    <Dependency name="blurt"/>
+  </SubProject>
+  <SubProject name="boost_uuid">
+  </SubProject>
+  <SubProject name="command_runner">
+  </SubProject>
+  <SubProject name="cxsparse_catkin">
+  </SubProject>
+  <SubProject name="eigen_catkin">
+  </SubProject>
+  <SubProject name="gflags_catkin">
+  </SubProject>
+  <SubProject name="glconsole_catkin">
+  </SubProject>
+  <SubProject name="glog_catkin">
+    <Dependency name="gflags_catkin"/>
+  </SubProject>
+  <SubProject name="agast">
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="brisk">
+    <Dependency name="agast"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="ceres_solver_catkin">
+    <Dependency name="cxsparse_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="blurt_ceres">
+    <Dependency name="blurt"/>
+    <Dependency name="ceres_solver_catkin"/>
+  </SubProject>
+  <SubProject name="cmake_example">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="glues_catkin">
+  </SubProject>
+  <SubProject name="google_api_lib">
+  </SubProject>
+  <SubProject name="google_play_services_lib">
+  </SubProject>
+  <SubProject name="android_pushmi_pullyu">
+    <Dependency name="android_dir_chooser"/>
+    <Dependency name="google_play_services_lib"/>
+    <Dependency name="google_api_lib"/>
+  </SubProject>
+  <SubProject name="gtest_catkin">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="gmock_catkin">
+    <Dependency name="gtest_catkin"/>
+  </SubProject>
+  <SubProject name="gmock_examples">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gmock_catkin"/>
+    <Dependency name="gtest_catkin"/>
+  </SubProject>
+  <SubProject name="intel_tbb_catkin">
+  </SubProject>
+  <SubProject name="libevent_catkin">
+    <Dependency name="gflags_catkin"/>
+  </SubProject>
+  <SubProject name="libnabo_catkin">
+    <Dependency name="eigen_catkin"/>
+  </SubProject>
+  <SubProject name="named_channel_graph">
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+  </SubProject>
+  <SubProject name="android_location_provider">
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="named_channel_graph"/>
+  </SubProject>
+  <SubProject name="nlopt_catkin">
+  </SubProject>
+  <SubProject name="numerics_toolbox">
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+  </SubProject>
+  <SubProject name="octomap_catkin">
+    <Dependency name="eigen_catkin"/>
+  </SubProject>
+  <SubProject name="opencv_catkin">
+    <Dependency name="eigen_catkin"/>
+  </SubProject>
+  <SubProject name="alvar_catkin">
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="ar_target_generator">
+    <Dependency name="alvar_catkin"/>
+    <Dependency name="gflags_catkin"/>
+  </SubProject>
+  <SubProject name="cv_bridge">
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="blurt_cv">
+    <Dependency name="blurt"/>
+    <Dependency name="cv_bridge"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="cvflyby">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="gtest_catkin"/>
+  </SubProject>
+  <SubProject name="feature_match_drawing">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="lsd_opencv">
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="eigen_catkin"/>
+  </SubProject>
+  <SubProject name="pangolin_catkin">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="glconsole_catkin"/>
+  </SubProject>
+  <SubProject name="peanut_bazaar">
+    <Dependency name="google_play_services_lib"/>
+  </SubProject>
+  <SubProject name="player_tcp_client">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="protobuf_catkin">
+  </SubProject>
+  <SubProject name="raisin_rviz_relay">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="sm_timing">
+  </SubProject>
+  <SubProject name="sophus_catkin">
+    <Dependency name="eigen_catkin"/>
+  </SubProject>
+  <SubProject name="calibu_catkin">
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="pangolin_catkin"/>
+    <Dependency name="sophus_catkin"/>
+  </SubProject>
+  <SubProject name="superframe_serialization">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="protobuf_catkin"/>
+  </SubProject>
+  <SubProject name="tango_map_sharing">
+    <Dependency name="google_api_lib"/>
+    <Dependency name="google_play_services_lib"/>
+  </SubProject>
+  <SubProject name="tango_service_client">
+  </SubProject>
+  <SubProject name="tbb_examples">
+    <Dependency name="intel_tbb_catkin"/>
+  </SubProject>
+  <SubProject name="tinyxml_catkin">
+  </SubProject>
+  <SubProject name="walkabout">
+    <Dependency name="android_vio_service_clientjar"/>
+  </SubProject>
+  <SubProject name="yaml_cpp_catkin">
+  </SubProject>
+  <SubProject name="generic">
+    <Dependency name="boost_uuid"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="geometry_toolbox">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="direct_least_squares_pnp">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+  </SubProject>
+  <SubProject name="engine_data">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="protobuf_catkin"/>
+    <Dependency name="sm_timing"/>
+  </SubProject>
+  <SubProject name="brisk_feature_matcher">
+    <Dependency name="brisk"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+  </SubProject>
+  <SubProject name="dense_map_provider">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="named_channel_graph"/>
+  </SubProject>
+  <SubProject name="feature_tracker_2d">
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="engine_data"/>
+  </SubProject>
+  <SubProject name="five_point_ransac">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+  </SubProject>
+  <SubProject name="image_toolbox">
+    <Dependency name="engine_data"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="frame_data">
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="image_toolbox"/>
+  </SubProject>
+  <SubProject name="calibration_provider">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="tinyxml_catkin"/>
+  </SubProject>
+  <SubProject name="depth_image_calibration">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="image_toolbox"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="depth_toolbox">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="image_toolbox"/>
+    <Dependency name="libnabo_catkin"/>
+  </SubProject>
+  <SubProject name="depth_validation">
+    <Dependency name="depth_toolbox"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="named_channel_graph"/>
+  </SubProject>
+  <SubProject name="integrator">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="sm_timing"/>
+  </SubProject>
+  <SubProject name="deterministic_initialization">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="integrator"/>
+    <Dependency name="numerics_toolbox"/>
+    <Dependency name="sm_timing"/>
+  </SubProject>
+  <SubProject name="line_detector">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="lsd_opencv"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="mesh_provider">
+    <Dependency name="depth_toolbox"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="named_channel_graph"/>
+  </SubProject>
+  <SubProject name="movidius_validation">
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="n_point_mle">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+  </SubProject>
+  <SubProject name="protobuf_msgs">
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="protobuf_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+  </SubProject>
+  <SubProject name="protobuf_network_com">
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="libevent_catkin"/>
+    <Dependency name="protobuf_catkin"/>
+    <Dependency name="protobuf_msgs"/>
+    <Dependency name="intel_tbb_catkin"/>
+  </SubProject>
+  <SubProject name="sf2_parser">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="frame_data"/>
+  </SubProject>
+  <SubProject name="tsdf">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="depth_toolbox"/>
+  </SubProject>
+  <SubProject name="twizzler_record">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="feature_tracker_2d"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="integrator"/>
+    <Dependency name="movidius_validation"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="two_point_plus_gravity_ransac">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+  </SubProject>
+  <SubProject name="two_point_ransac">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+  </SubProject>
+  <SubProject name="ransac">
+    <Dependency name="five_point_ransac"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="n_point_mle"/>
+    <Dependency name="two_point_ransac"/>
+    <Dependency name="cvflyby"/>
+  </SubProject>
+  <SubProject name="validation_stats_provider">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+  </SubProject>
+  <SubProject name="vins_mapping_interface">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="bundle_error_terms">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="integrator"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="vins_mapping_interface"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="visualization_engine">
+    <Dependency name="android_kernel_headers"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="glues_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="vins_mapping_interface"/>
+  </SubProject>
+  <SubProject name="player_engine">
+    <Dependency name="android_location_provider"/>
+    <Dependency name="android_kernel_headers"/>
+    <Dependency name="depth_image_calibration"/>
+    <Dependency name="depth_validation"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="image_toolbox"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="movidius_validation"/>
+    <Dependency name="named_channel_graph"/>
+    <Dependency name="vins_mapping_interface"/>
+    <Dependency name="validation_stats_provider"/>
+    <Dependency name="visualization_engine"/>
+  </SubProject>
+  <SubProject name="affine_klt">
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="player_engine"/>
+  </SubProject>
+  <SubProject name="android_player">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="player_engine"/>
+  </SubProject>
+  <SubProject name="depth_image_calibration_apps">
+    <Dependency name="depth_image_calibration"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="image_toolbox"/>
+    <Dependency name="player_engine"/>
+  </SubProject>
+  <SubProject name="desktop_player">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="player_engine"/>
+  </SubProject>
+  <SubProject name="ground_truth_engine">
+    <Dependency name="alvar_catkin"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="tinyxml_catkin"/>
+  </SubProject>
+  <SubProject name="location_provider">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="integrator"/>
+    <Dependency name="named_channel_graph"/>
+    <Dependency name="player_engine"/>
+  </SubProject>
+  <SubProject name="dense_pointcloud_odometry">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="depth_toolbox"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="location_provider"/>
+  </SubProject>
+  <SubProject name="map_structure">
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="drawing_helpers">
+    <Dependency name="blurt"/>
+    <Dependency name="blurt_cv"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="map_manager">
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="integrator"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="vins_mapping_interface"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="map_transport">
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="sensor_data_proto_log">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="named_channel_graph"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="feature_tracker_2d"/>
+  </SubProject>
+  <SubProject name="desktop_player_to_proto_log">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sensor_data_proto_log"/>
+  </SubProject>
+  <SubProject name="small_scale_ba">
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="integrator"/>
+    <Dependency name="map_manager"/>
+    <Dependency name="numerics_toolbox"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sm_timing"/>
+  </SubProject>
+  <SubProject name="sparse_mapping_monitor">
+    <Dependency name="blurt_cv"/>
+    <Dependency name="blurt_ceres"/>
+    <Dependency name="blurt_monitor"/>
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="map_structure"/>
+  </SubProject>
+  <SubProject name="sparse_mapping_protobuf_msgs">
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="protobuf_catkin"/>
+  </SubProject>
+  <SubProject name="alex">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="integrator"/>
+    <Dependency name="map_manager"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="numerics_toolbox"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+  </SubProject>
+  <SubProject name="analysis_tools">
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="map_visualization">
+    <Dependency name="blurt"/>
+    <Dependency name="blurt_cv"/>
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="drawing_helpers"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="target_detection">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="calibu_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sm_timing"/>
+  </SubProject>
+  <SubProject name="desktop_target_detection">
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="target_detection"/>
+  </SubProject>
+  <SubProject name="twizzler_sensor_graph">
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="feature_tracker_2d"/>
+    <Dependency name="player_engine"/>
+  </SubProject>
+  <SubProject name="visual_inertial_calibration">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="calibu_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="pangolin_catkin"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sophus_catkin"/>
+    <Dependency name="tinyxml_catkin"/>
+  </SubProject>
+  <SubProject name="android_vicalib">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="visual_inertial_calibration"/>
+  </SubProject>
+  <SubProject name="desktop_vicalib">
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="visual_inertial_calibration"/>
+  </SubProject>
+  <SubProject name="vocabulary_tree">
+    <Dependency name="brisk"/>
+    <Dependency name="brisk_feature_matcher"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="image_toolbox"/>
+    <Dependency name="libnabo_catkin"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sm_timing"/>
+  </SubProject>
+  <SubProject name="loop_detector">
+    <Dependency name="calibration_provider"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="feature_match_drawing"/>
+    <Dependency name="five_point_ransac"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="ransac"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="vocabulary_tree"/>
+  </SubProject>
+  <SubProject name="loop_closure_visualization">
+    <Dependency name="feature_match_drawing"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="loop_detector"/>
+    <Dependency name="player_engine"/>
+  </SubProject>
+  <SubProject name="placeless_loopclosure">
+    <Dependency name="brisk"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="feature_match_drawing"/>
+    <Dependency name="five_point_ransac"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="libnabo_catkin"/>
+    <Dependency name="loop_detector"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="ransac"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="vocabulary_tree"/>
+  </SubProject>
+  <SubProject name="vp_detect_ransac">
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="line_detector"/>
+    <Dependency name="location_provider"/>
+  </SubProject>
+  <SubProject name="yellowstone_depth_viz">
+    <Dependency name="depth_toolbox"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="zero_point_ransac">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+  </SubProject>
+  <SubProject name="visual_inertial_odometry">
+    <Dependency name="brisk_feature_matcher"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="integrator"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="numerics_toolbox"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="ransac"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="vins_mapping_interface"/>
+    <Dependency name="zero_point_ransac"/>
+    <Dependency name="small_scale_ba"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="vp_detect_ransac"/>
+  </SubProject>
+  <SubProject name="android_unity">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="desktop_vio">
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="visualization_engine"/>
+  </SubProject>
+  <SubProject name="desktop_vio_protolog">
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="visualization_engine"/>
+    <Dependency name="sensor_data_proto_log"/>
+  </SubProject>
+  <SubProject name="feature_track_stats">
+    <Dependency name="affine_klt"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="five_point_ransac"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="ransac"/>
+    <Dependency name="visual_inertial_odometry"/>
+  </SubProject>
+  <SubProject name="loop_detector_engine">
+    <Dependency name="brisk"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="five_point_ransac"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="loop_detector"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="map_transport"/>
+    <Dependency name="ransac"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="vocabulary_tree"/>
+  </SubProject>
+  <SubProject name="twizzler_vio">
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="visualization_engine"/>
+    <Dependency name="sensor_data_proto_log"/>
+    <Dependency name="twizzler_sensor_graph"/>
+  </SubProject>
+  <SubProject name="zeromq_catkin">
+  </SubProject>
+  <SubProject name="zeromq_networking">
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="protobuf_catkin"/>
+    <Dependency name="zeromq_catkin"/>
+  </SubProject>
+  <SubProject name="android_zeromq_networking">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="zeromq_networking"/>
+  </SubProject>
+  <SubProject name="multiplayer_client">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="named_channel_graph"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="zeromq_networking"/>
+  </SubProject>
+  <SubProject name="multiplayer_server">
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="zeromq_networking"/>
+  </SubProject>
+  <SubProject name="sparse_mapping">
+    <Dependency name="blurt_ceres"/>
+    <Dependency name="blurt_cv"/>
+    <Dependency name="blurt_monitor"/>
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="loop_detector_engine"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="map_transport"/>
+    <Dependency name="map_visualization"/>
+    <Dependency name="multiplayer_client"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="protobuf_network_com"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="sparse_mapping_monitor"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="visualization_engine"/>
+    <Dependency name="yaml_cpp_catkin"/>
+    <Dependency name="zeromq_networking"/>
+  </SubProject>
+  <SubProject name="e2e_regression_tests">
+    <Dependency name="blurt_cv"/>
+    <Dependency name="blurt_ceres"/>
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="cvflyby"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="loop_detector_engine"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="map_visualization"/>
+    <Dependency name="multiplayer_client"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="protobuf_network_com"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="sparse_mapping"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="visualization_engine"/>
+    <Dependency name="yaml_cpp_catkin"/>
+    <Dependency name="zeromq_networking"/>
+  </SubProject>
+  <SubProject name="ground_truth_sparse_mapping">
+    <Dependency name="bundle_error_terms"/>
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="sparse_mapping_protobuf_msgs"/>
+    <Dependency name="sparse_mapping"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="leica_tps_processing">
+    <Dependency name="desktop_vio"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="ground_truth_engine"/>
+    <Dependency name="ground_truth_sparse_mapping"/>
+    <Dependency name="sparse_mapping"/>
+    <Dependency name="tinyxml_catkin"/>
+    <Dependency name="yaml_cpp_catkin"/>
+  </SubProject>
+  <SubProject name="octomapping">
+    <Dependency name="ceres_solver_catkin"/>
+    <Dependency name="depth_toolbox"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="octomap_catkin"/>
+    <Dependency name="opencv_catkin"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="protobuf_msgs"/>
+    <Dependency name="protobuf_network_com"/>
+    <Dependency name="sm_timing"/>
+    <Dependency name="sparse_mapping"/>
+    <Dependency name="tsdf"/>
+    <Dependency name="visual_inertial_odometry"/>
+    <Dependency name="visualization_engine"/>
+  </SubProject>
+  <SubProject name="desktop_octomapping">
+    <Dependency name="dense_map_provider"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="mesh_provider"/>
+    <Dependency name="octomapping"/>
+  </SubProject>
+  <SubProject name="desktop_octomapping_visualizer">
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="intel_tbb_catkin"/>
+    <Dependency name="octomapping"/>
+    <Dependency name="protobuf_msgs"/>
+    <Dependency name="protobuf_network_com"/>
+  </SubProject>
+  <SubProject name="desktop_offline_meshing">
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="octomapping"/>
+  </SubProject>
+  <SubProject name="mesh_toolbox">
+    <Dependency name="depth_toolbox"/>
+    <Dependency name="eigen_catkin"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="generic"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="image_toolbox"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="octomapping"/>
+    <Dependency name="opencv_catkin"/>
+  </SubProject>
+  <SubProject name="tango_api">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="frame_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="gtest_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="mesh_provider"/>
+    <Dependency name="octomapping"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sparse_mapping"/>
+    <Dependency name="visual_inertial_odometry"/>
+  </SubProject>
+  <SubProject name="tango_api_jni_wrapper">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="tango_api"/>
+  </SubProject>
+  <SubProject name="tango_api_tutorial">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="google_play_services_lib"/>
+    <Dependency name="tango_api"/>
+  </SubProject>
+  <SubProject name="tango_mapper">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="generic"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="google_play_services_lib"/>
+    <Dependency name="octomapping"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sparse_mapping"/>
+    <Dependency name="visual_inertial_odometry"/>
+  </SubProject>
+  <SubProject name="tango_service">
+    <Dependency name="tango_api_jni_wrapper"/>
+  </SubProject>
+  <SubProject name="unity_octomapping">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="geometry_toolbox"/>
+    <Dependency name="gflags_catkin"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="octomapping"/>
+  </SubProject>
+  <SubProject name="vio_library">
+    <Dependency name="android_system_libs"/>
+    <Dependency name="calibration_provider"/>
+    <Dependency name="engine_data"/>
+    <Dependency name="glog_catkin"/>
+    <Dependency name="location_provider"/>
+    <Dependency name="loop_detector"/>
+    <Dependency name="map_structure"/>
+    <Dependency name="movidius_validation"/>
+    <Dependency name="player_engine"/>
+    <Dependency name="sparse_mapping"/>
+    <Dependency name="tango_api"/>
+    <Dependency name="validation_stats_provider"/>
+    <Dependency name="visual_inertial_odometry"/>
+  </SubProject>
+  <SubProject name="android_vio_service">
+    <Dependency name="vio_library"/>
+  </SubProject>
+  <SubProject name="device_tests">
+    <Dependency name="android_player"/>
+    <Dependency name="android_pushmi_pullyu"/>
+    <Dependency name="android_vicalib"/>
+    <Dependency name="android_vio_service"/>
+    <Dependency name="android_zeromq_networking"/>
+    <Dependency name="command_runner"/>
+    <Dependency name="peanut_bazaar"/>
+    <Dependency name="tango_map_sharing"/>
+    <Dependency name="tango_mapper"/>
+    <Dependency name="tango_service"/>
+    <Dependency name="walkabout"/>
+  </SubProject>
+</Project>
