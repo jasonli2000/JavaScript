@@ -6,13 +6,16 @@
 .node {
   //font: 400 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  fill: #bbb;
+  font-size: 13px;
+  fill: #888;
   font-family: 'Open Sans', sans-serif;
+  opacity: 0.8;
 }
 
 .node:hover {
   fill: #000;
+  cursor: hand;
+  cursor: pointer;
 }
 
 .link {
@@ -20,6 +23,7 @@
   stroke-opacity: .4;
   fill: none;
   pointer-events: none;
+  opacity: 0.2;
 }
 
 .node:hover,
@@ -27,6 +31,7 @@
 .node--target {
   fill: #000;
   font-weight: 700;
+  opacity: 1;
 }
 
 .node--source {
@@ -41,6 +46,7 @@
 .link--target {
   stroke-opacity: 1;
   stroke-width: 2px;
+  opacity: 1;
 }
 
 .link--source {
@@ -56,9 +62,9 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var diameter = 900,
+var diameter = 920,
     radius = diameter / 2,
-    innerRadius = radius - 184;
+    innerRadius = radius - 204;
 
 var cluster = d3.layout.cluster()
     .size([360, innerRadius])
@@ -82,7 +88,9 @@ var svg = d3.select("body").append("svg")
 var link = svg.append("g").selectAll(".link"),
     node = svg.append("g").selectAll(".node");
 
+var root;
 d3.json("heb.json", function(error, classes) {
+  root = classes; 
   var nodes = cluster.nodes(packageHierarchy(classes)),
       links = packageDepends(nodes);
 
@@ -102,22 +110,11 @@ d3.json("heb.json", function(error, classes) {
       .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
       .text(function(d) { return d.key; })
       .on("mouseover", mouseovered)
+      .on("click", mouseclicked)
       .on("mouseout", mouseouted);
 });
 
 function mouseovered(d) {
-
-  svg.selectAll(".node")
-      .filter(function(l) {
-        return l.source !== d && l.target !== d && l !== d;
-      })
-      .transition().style("opacity", 0.2);
-
-  svg.selectAll(".link")
-      .filter(function(l) {
-        return l.source !== d && l.target !== d && l !== d;
-      })
-      .transition().style("opacity", 0.2);
 
   node
       .each(function(n) { n.target = n.source = false; });
@@ -132,11 +129,6 @@ function mouseovered(d) {
       .classed("node--target", function(n) { return n.target; })
       .classed("node--source", function(n) { return n.source; });
 
-  svg.selectAll(".node--target").transition().style("opacity", 1);
-  svg.selectAll(".node--source").transition().style("opacity", 1);
-  svg.selectAll(".link--target").transition().style("opacity", 1);
-  svg.selectAll(".link--source").transition().style("opacity", 1);
-
 }
 
 function mouseouted(d) {
@@ -148,9 +140,17 @@ function mouseouted(d) {
       .classed("node--target", false)
       .classed("node--source", false);
 
-  svg.selectAll(".node").transition().style("opacity", 1);
-  svg.selectAll(".link").transition().style("opacity", 1);
+}
 
+function mouseclicked(d) {
+  console.log(d.name + " clicked");
+  // need to find out the fan in and fan out dependencies
+  for (n in root) {
+    if (root[n].name === d.name) {
+      console.log(root[n].depends);
+      break;
+    }
+  }
 }
 
 d3.select(self.frameElement).style("height", diameter + "px");
