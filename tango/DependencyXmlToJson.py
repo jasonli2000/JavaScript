@@ -12,13 +12,10 @@ def generateDepMatrixByXML(xmlFile):
   xmlTree = ET.parse(xmlFile)
   rootElem = xmlTree.getroot()
   for children in rootElem:
-    print children.tag, children.attrib
     projName = children.attrib['name']
-    print projName
     subProjLst.append(projName)
     subProjSet[projName] = len(subProjLst) - 1
     for child in children:
-      print "\t", child.tag, child.attrib
       depName = child.attrib['name']
       subProjDep.setdefault(projName, []).append(depName)
 
@@ -33,12 +30,13 @@ def generateDepMatrixByXML(xmlFile):
 
   # find out all nodes set (get rid of isolated projects)
   allDepProj = set(subProjDep.keys()) | reduce(set.union, subProjDep.values(), set())
-  print len(allDepProj), len(subProjLst)
+  return allDepProj
 
 def outputDepMatrixToJSON(output, formatStr):
   import json
-  jsonDump = {}
+  jsonDump = None
   if formatStr == "co-occurence":
+    jsonDump = {}
     for subproj in subProjLst:
       nodeInfo = {'name': subproj, 'group': 1}
       jsonDump.setdefault('nodes', []).append(nodeInfo)
@@ -50,6 +48,19 @@ def outputDepMatrixToJSON(output, formatStr):
                      'value': 1
                     }
           jsonDump.setdefault('links',[]).append(depInfo)
+    json.dump(jsonDump, open(output, "wb"))
+  elif formatStr == "dependency": # do not convert to matrix format
+    jsonDump = []
+    print allDepProj
+    for subproj in sorted(allDepProj):
+      nodeInfo = {'name': subproj}
+      """ add depends """
+      if subproj in subProjDep:
+        for depProj in subProjDep[subproj]:
+          nodeInfo.setdefault('depends',[]).append(depProj)
+      import pprint
+      pprint.pprint(nodeInfo)
+      jsonDump.append(nodeInfo)
     json.dump(jsonDump, open(output, "wb"))
   elif formatStr == "dependencywheel":
     outputJs = open(output, "wb")
@@ -65,7 +76,6 @@ def outputDepMatrixToJSON(output, formatStr):
     outputJs.write('];\n')
     outputJs.write('};\n')
 
-
-generateDepMatrixByXML(xmlFile)
-outputDepMatrixToJSON("depwheel.js", 'dependencywheel')
+allDepProj = generateDepMatrixByXML(xmlFile)
+outputDepMatrixToJSON("heb.json", 'dependency')
 
