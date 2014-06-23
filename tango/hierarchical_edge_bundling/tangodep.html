@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700' rel='stylesheet' type='text/css'>
 <style>
 
 .node {
-  font: 400 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  //font: 400 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
   fill: #bbb;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .node:hover {
@@ -51,9 +55,9 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var diameter = 940,
+var diameter = 900,
     radius = diameter / 2,
-    innerRadius = radius - 200;
+    innerRadius = radius - 184;
 
 var cluster = d3.layout.cluster()
     .size([360, innerRadius])
@@ -101,6 +105,7 @@ d3.json("heb.json", function(error, classes) {
 });
 
 function mouseovered(d) {
+
   node
       .each(function(n) { n.target = n.source = false; });
 
