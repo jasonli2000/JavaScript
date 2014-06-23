@@ -25,6 +25,7 @@
 .node:hover,
 .node--source,
 .node--target {
+  fill: #000;
   font-weight: 700;
 }
 
@@ -106,6 +107,18 @@ d3.json("heb.json", function(error, classes) {
 
 function mouseovered(d) {
 
+  svg.selectAll(".node")
+      .filter(function(l) {
+        return l.source !== d && l.target !== d && l !== d;
+      })
+      .transition().style("opacity", 0.2);
+
+  svg.selectAll(".link")
+      .filter(function(l) {
+        return l.source !== d && l.target !== d && l !== d;
+      })
+      .transition().style("opacity", 0.2);
+
   node
       .each(function(n) { n.target = n.source = false; });
 
@@ -118,6 +131,12 @@ function mouseovered(d) {
   node
       .classed("node--target", function(n) { return n.target; })
       .classed("node--source", function(n) { return n.source; });
+
+  svg.selectAll(".node--target").transition().style("opacity", 1);
+  svg.selectAll(".node--source").transition().style("opacity", 1);
+  svg.selectAll(".link--target").transition().style("opacity", 1);
+  svg.selectAll(".link--source").transition().style("opacity", 1);
+
 }
 
 function mouseouted(d) {
@@ -128,6 +147,10 @@ function mouseouted(d) {
   node
       .classed("node--target", false)
       .classed("node--source", false);
+
+  svg.selectAll(".node").transition().style("opacity", 1);
+  svg.selectAll(".link").transition().style("opacity", 1);
+
 }
 
 d3.select(self.frameElement).style("height", diameter + "px");
