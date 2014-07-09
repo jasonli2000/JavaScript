@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700' rel='stylesheet' type='text/css'>
+<style>
+
+.node {
+  //font: 400 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  fill: #888;
+  font-family: 'Open Sans', sans-serif;
+  opacity: 0.8;
+}
+
+.node:hover {
+  fill: #000;
+  cursor: hand;
+  cursor: pointer;
+}
+
+.link {
+  stroke: steelblue;
+  stroke-opacity: .4;
+  fill: none;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.node:hover,
+.node--source,
+.node--target {
+  fill: #000;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.node--source {
+  fill: #2ca02c;
+}
+
+.node--target {
+  fill: #d62728;
+}
+
+.link--source,
+.link--target {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+  opacity: 1;
+}
+
+.link--source {
+  stroke: #d62728;
+}
+
+.link--target {
+  stroke: #2ca02c;
+}
+</style>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<div>
+  <div id="footer" style="position:absolute; right:50px; top:10px;">
+    <label for="autocomplete">Select a subproject: </label>
+    <input id="autocomplete" size="50">
+  </div>
+
+<script>
+
+var diameter = 920,
+    radius = diameter / 2,
+    innerRadius = radius - 204;
+
+var cluster = d3.layout.cluster()
+    .size([360, innerRadius])
+    .sort(null)
+    .value(function(d) { return d.size; });
+
+var bundle = d3.layout.bundle();
+
+var line = d3.svg.line.radial()
+    .interpolate("bundle")
+    .tension(.9)
+    .radius(function(d) { return d.y; })
+    .angle(function(d) { return d.x / 180 * Math.PI; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+  .append("g")
+    .attr("transform", "translate(" + radius + "," + radius + ")");
+
+var link = svg.append("g").selectAll(".link"),
+    node = svg.append("g").selectAll(".node");
+
+var root;
+d3.json("heb.json", function(error, classes) {
+  root = classes;
+  var nodes = cluster.nodes(packageHierarchy(classes)),
+      links = packageDepends(nodes);
+
+  link = link
+      .data(bundle(links))
+    .enter().append("path")
+      .each(function(d) { d.source = d[0], d.target = d[d.length - 1]; })
+      .attr("class", "link")
+      .attr("d", line);
+
+  node = node
+      .data(nodes.filter(function(n) { return !n.children; }))
+    .enter().append("text")
+      .attr("class", "node")
+      .attr("dy", ".31em")
+      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
+      .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+      .text(function(d) { return d.key; })
+      .on("mouseover", mouseovered)
+      .on("click", mouseclicked)
+      .on("mouseout", mouseouted);
+  createAutocompleteComponents();
+});
+
+function createAutocompleteComponents() {
+  var tags = populateSubgroups();
+  $( "#autocomplete" ).autocomplete({
+    source: tags,
+    minLength: 0,
+    change: autoCompleteChanged
+  });
+}
+
+function autoCompleteChanged(eve, ui) {
+  console.log("label selected is " + ui.item.label);
+  if (ui.item != undefined) {
+    var selectedLbl = ui.item.label;
+    svg.selectAll(".text").filter(function(l){}).style();
+  }
+}
+
+function mouseovered(d) {
+
+  node
+      .each(function(n) { n.target = n.source = false; });
+
+  link
+      .classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
+      .classed("link--source", function(l) { if (l.source === d) return l.target.target = true; })
+    .filter(function(l) { return l.target === d || l.source === d; })
+      .each(function() { this.parentNode.appendChild(this); });
+
+  node
+      .classed("node--target", function(n) { return n.target; })
+      .classed("node--source", function(n) { return n.source; });
+
+}
+
+function mouseouted(d) {
+  link
+      .classed("link--target", false)
+      .classed("link--source", false);
+
+  node
+      .classed("node--target", false)
+      .classed("node--source", false);
+
+}
+
+function mouseclicked(d) {
+  console.log(d.name + " clicked");
+  // need to find out the fan in and fan out dependencies
+  for (n in root) {
+    if (root[n].name === d.name) {
+      console.log(root[n].depends);
+      break;
+    }
+  }
+}
+
+d3.select(self.frameElement).style("height", diameter + "px");
+
+// Lazily construct the package hierarchy from class names.
+function packageHierarchy(classes) {
+  var map = {};
+  
+  function setparent(name, data) {
+    var node = map[name];
+    if (!node) {
+      node = map[name] = data || {name: name, children: []};
+      if (name.length) {
+        node.parent = map[""];
+        node.parent.children.push(node);
+        node.key = name;
+      }
+    }
+  }
+  
+  setparent("", null);
+  classes.forEach(function(d) {
+    setparent(d.name, d);
+  });
+
+  return map[""];
+}
+
+// Return a list of depends for the given array of nodes.
+function packageDepends(nodes) {
+  var map = {},
+      depends = [];
+
+  // Compute a map from name to node.
+  nodes.forEach(function(d) {
+    map[d.name] = d;
+  });
+
+  // For each import, construct a link from the source to target node.
+  nodes.forEach(function(d) {
+    if (d.depends) d.depends.forEach(function(i) {
+      depends.push({source: map[d.name], target: map[i]});
+    });
+  });
+
+  return depends;
+}
+
+function populateSubgroups(){
+  var tag = [];
+  for (n in root){
+    tag.push(root[n].name);
+  }
+  return tag;
+}
+</script>
+</div>
+</body>
+</html>
