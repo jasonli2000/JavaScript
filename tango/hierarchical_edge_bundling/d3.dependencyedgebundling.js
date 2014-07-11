@@ -6,30 +6,8 @@ d3.chart = d3.chart || {};
  * Usage:
  * var chart = d3.chart.dependencyedgebundling();
  * d3.select('#chart_placeholder')
- *   .datum({
- *      packageNames: [the name of the packages in the matrix],
- *      matrix: [your dependency matrix]
- *   })
+ *   .datum(data)
  *   .call(chart);
- *
- * // Data must be a matrix of dependencies. The first item must be the main package.
- * // For instance, if the main package depends on packages A and B, and package A
- * // also depends on package B, you should build the data as follows:
- *
- * var data = {
- *   packageNames: ['Main', 'A', 'B'],
- *   matrix: [[0, 1, 1], // Main depends on A and B
- *            [0, 0, 1], // A depends on B
- *            [0, 0, 0]] // B doesn't depend on A or Main
- * };
- *
- * // You can customize the chart width, margin (used to display package names),
- * // and padding (separating groups in the wheel)
- * var chart = d3.chart.dependencyedgebundling().width(700).margin(150).padding(.02);
- *
- * @author François Zaninotto
- * @license MIT
- * @see https://github.com/fzaninotto/DependencyWheel for complete source and license
  */
 d3.chart.dependencyedgebundling = function(options) {
 
