@@ -5,19 +5,28 @@
 <link href='googlefonts.css' rel='stylesheet' type='text/css'>
 -->
 <link href='d3.dependencyedgebundling.css' rel='stylesheet' type='text/css'>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="d3.dependencyedgebundling.js"></script>
+
 <body>
 
 <div id="chart_placeholder"></div>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="d3.dependencyedgebundling.js"></script>
+
 <script>
-var diameter = 920;
 var chart = d3.chart.dependencyedgebundling();
-d3.json("heb.json", function(error, classes) {
+var rooturl = location.host;
+var ajaxpath = "http://" + rooturl + "/cdash/ajax/getsubprojectdependencies.php?project=test";
+var localpath = "heb.json";
+d3.json(localpath, function(error, classes) {
+  if (error){
+    errormsg = "json error " + error + " data: " + classes;
+    document.write(errormsg);
+    return;
+  }
   d3.select('#chart_placeholder')
     .datum(classes)
     .call(chart);
 });
 
-
 </script>
+

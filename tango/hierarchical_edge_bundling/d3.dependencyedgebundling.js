@@ -11,11 +11,20 @@ d3.chart = d3.chart || {};
  */
 d3.chart.dependencyedgebundling = function(options) {
 
-  var diameter = 920;
-  var radius = diameter / 2;
-  var innerRadius = radius - 204;
+  var diameter ;
+  var radius ;
+  var textRadius ;
+  var innerRadius = radius - textRadius;
+  var txtLinkGap = 5;
   
- 
+  function resetDimension(){
+    radius = diameter / 2;
+    innerRadius = radius - textRadius;
+  }
+
+  function autoDimension(){
+    // automatically resize the dimension based on total number of nodes
+  }
   // Lazily construct the package hierarchy
   var packageHierarchy = function (classes) {
     var map = {};
@@ -62,7 +71,28 @@ d3.chart.dependencyedgebundling = function(options) {
 
   function chart(selection) {
     selection.each(function(data) {
-      
+      // logic to set the size of the svg graph based on input
+      var item=0, maxLength=0, length=0, maxItem;
+      for (item in data){
+        length = data[item].name.length;
+        if (maxLength < length)
+          {
+            maxLength = length;
+            maxItem = data[item].name;
+          }
+      }
+      var minTextWidth = 7.4;
+      var radialTextHeight = 9.8;
+      var minTextRadius = Math.ceil(maxLength * minTextWidth);
+      var minInnerRadius = Math.ceil((radialTextHeight * data.length)/2/Math.PI);
+      if (minInnerRadius < 140)
+        {
+          minInnerRadius = 140;
+        }
+      var minDiameter = 2 * (minTextRadius + minInnerRadius + txtLinkGap + 2);
+      diameter = minDiameter;
+      textRadius = minTextRadius;
+      resetDimension();
       var root = data;
       // create the layout
       var cluster =  d3.layout.cluster()
@@ -78,7 +108,7 @@ d3.chart.dependencyedgebundling = function(options) {
           .radius(function(d) { return d.y; })
           .angle(function(d) { return d.x / 180 * Math.PI; });
 
-      var svg = d3.select("body").append("svg")
+      var svg = selection.insert("svg")
           .attr("width", diameter)
           .attr("height", diameter)
         .append("g")
@@ -103,7 +133,7 @@ d3.chart.dependencyedgebundling = function(options) {
         .enter().append("text")
           .attr("class", "node")
           .attr("dy", ".31em")
-          .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
+          .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + txtLinkGap) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
           .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
           .text(function(d) { return d.key; })
           .on("mouseover", mouseovered)
@@ -139,24 +169,6 @@ d3.chart.dependencyedgebundling = function(options) {
 
     });
   }
-
-  chart.diameter = function(value) {
-    if (!arguments.length) return diameter;
-    diameter = value;
-    return chart;
-  };
-
-  chart.radius = function(value) {
-    if (!arguments.length) return radius;
-    radius = value;
-    return chart;
-  };
-
-  chart.innerRadius = function(value) {
-    if (!arguments.length) return innerRadius;
-    innerRadius = value;
-    return chart;
-  };
 
   return chart;
 };
