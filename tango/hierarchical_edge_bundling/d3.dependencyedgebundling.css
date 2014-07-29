@@ -1,4 +1,4 @@
-.node {
+text.node {
   /* font: 400 14px "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-weight: 400;
   font-size: 13px;
@@ -9,8 +9,6 @@
 
 .node:hover {
   fill: #000;
-  cursor: hand;
-  cursor: pointer;
 }
 
 .link {
@@ -51,4 +49,3 @@
 .link--target {
   stroke: #2ca02c;
 }
-

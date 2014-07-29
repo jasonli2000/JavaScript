@@ -16,7 +16,8 @@ d3.chart.dependencyedgebundling = function(options) {
   var textRadius ;
   var innerRadius = radius - textRadius;
   var txtLinkGap = 5;
-  
+  var _nodeTextHyperLink;
+
   function resetDimension(){
     radius = diameter / 2;
     innerRadius = radius - textRadius;
@@ -28,19 +29,25 @@ d3.chart.dependencyedgebundling = function(options) {
   // Lazily construct the package hierarchy
   var packageHierarchy = function (classes) {
     var map = {};
-    
+
     function setparent(name, data) {
       var node = map[name];
       if (!node) {
         node = map[name] = data || {name: name, children: []};
         if (name.length) {
-          node.parent = map[""];
+          if (node.group !== undefined && node.group.length > 0) {
+            node.parent = setparent(node.group.substring(0, node.group.lastIndexOf('.')), null);
+          }
+          else {
+            node.parent = map[""];
+          }
           node.parent.children.push(node);
           node.key = name;
         }
       }
+      return node;
     }
-    
+
     setparent("", null);
     classes.forEach(function(d) {
       setparent(d.name, d);
@@ -82,7 +89,7 @@ d3.chart.dependencyedgebundling = function(options) {
           }
       }
       var minTextWidth = 7.4;
-      var radialTextHeight = 9.8;
+      var radialTextHeight = 13;
       var minTextRadius = Math.ceil(maxLength * minTextWidth);
       var minInnerRadius = Math.ceil((radialTextHeight * data.length)/2/Math.PI);
       if (minInnerRadius < 140)
@@ -104,7 +111,7 @@ d3.chart.dependencyedgebundling = function(options) {
 
       var line = d3.svg.line.radial()
           .interpolate("bundle")
-          .tension(.9)
+          .tension(.85)
           .radius(function(d) { return d.y; })
           .angle(function(d) { return d.x / 180 * Math.PI; });
 
@@ -113,7 +120,7 @@ d3.chart.dependencyedgebundling = function(options) {
           .attr("height", diameter)
         .append("g")
           .attr("transform", "translate(" + radius + "," + radius + ")");
-      
+
       // get all the link and node
       var link = svg.append("g").selectAll(".link"),
           node = svg.append("g").selectAll(".node");
@@ -130,15 +137,26 @@ d3.chart.dependencyedgebundling = function(options) {
 
       node = node
           .data(nodes.filter(function(n) { return !n.children; }))
-        .enter().append("text")
-          .attr("class", "node")
+        .enter();
+      if (_nodeTextHyperLink) {
+        node = node.append("a")
+          .attr("xlink:href", _nodeTextHyperLink)
+          .attr("target", "_blank")
+          .style("text-decoration", "none")
+          .insert("text");
+      }
+      else {
+        node = node.append("text");
+      }
+      node = node.attr("class", "node")
           .attr("dy", ".31em")
           .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + txtLinkGap) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
           .style("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
           .text(function(d) { return d.key; })
           .on("mouseover", mouseovered)
           .on("mouseout", mouseouted);
-       
+          //.on("click", _onNodeClick);
+
       function mouseovered(d) {
 
         node
@@ -146,9 +164,9 @@ d3.chart.dependencyedgebundling = function(options) {
 
         link
             .classed("link--target", function(l) { if (l.target === d) return l.source.source = true; })
-            .classed("link--source", function(l) { if (l.source === d) return l.target.target = true; })
-          .filter(function(l) { return l.target === d || l.source === d; })
-            .each(function() { this.parentNode.appendChild(this); });
+            .classed("link--source", function(l) { if (l.source === d) return l.target.target = true; });
+          //  .filter(function(l) { return l.target === d || l.source === d; })
+          //  .each(function() { this.parentNode.appendChild(this); });
 
         node
             .classed("node--target", function(n) { return n.target; })
@@ -166,9 +184,14 @@ d3.chart.dependencyedgebundling = function(options) {
             .classed("node--source", false);
 
       }
-
     });
   }
+
+  chart.nodeTextHyperLink = function(n) {
+    if (!arguments.length) return n;
+    _nodeTextHyperLink = n;
+    return chart;
+  };
 
   return chart;
 };
